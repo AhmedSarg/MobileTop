@@ -93,6 +93,43 @@ button, button:focus {
   margin-right: -4rem;
 }
 
+#new-phones .owl-carousel .item .product a {
+  overflow: hidden;
+}
+
+#new-phones .owl-carousel .item .product img {
+  transition: transform 0.5s ease;
+}
+#new-phones .owl-carousel .item .product img:hover {
+  transform: scale(1.1);
+}
+/* buttons code */
+#new-phones .owl-carousel .owl-nav button {
+  position: absolute;
+  top: 30%;
+  outline: none;
+}
+ /* left (prev) carousel */
+#new-phones .owl-carousel .owl-nav button.owl-prev {
+  left: 0;
+}
+#new-phones .owl-carousel .owl-nav button.owl-prev span,
+#new-phones .owl-carousel .owl-nav button.owl-next span {
+  font-size: 35px;
+  color: #003859;
+  padding: 0 1rem; /* This is now 16 pixels (1 * 16px) */
+}
+#new-phones .owl-carousel .owl-nav button.owl-prev span {
+  margin-left: -4rem;
+}
+
+ /* right (next) carousel */
+#new-phones .owl-carousel .owl-nav button.owl-next {
+  right: 0;
+}
+#new-phones .owl-carousel .owl-nav button.owl-next span {
+  margin-right: -4rem;
+}
 
 
 /*# sourceMappingURL=style.css.map */

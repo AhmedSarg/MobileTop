@@ -28,7 +28,25 @@ $(document).ready(function(){
         }
     });
 
+    // New Phones 
 
+    $("#new-phones .owl-carousel").owlCarousel({
+        loop: true,     // Infinite loop (carousel will keep going in a loop)
+        nav: true,      // Display navigation arrows (previous/next)
+        dots: false,    // Do not display  dots under image
+    
+        responsive: {             // Responsive Func
+            0: {
+                items: 1    // Number of items to display at 0px and above viewport width
+            },
+            600: {
+                items: 3    // Number of items to display at 600px and above viewport width
+            },
+            1000: {
+                items: 5    // Number of items to display at 1000px and above viewport width
+            }
+        }
+    });
 
     // isotop filter                       الجزء ده يخص الي بيحصل في الفتلر بتاعنا ان لما ادوس علي نوع موبيل يخفي الباقي ويظهر النوع فقط 
 
