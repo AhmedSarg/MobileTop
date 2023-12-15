@@ -103,7 +103,7 @@
                                 <span><i class="fas fa-star"></i></span>
                                 <span><i class="far fa-star"></i></span>
                             </div>
-                            <a href="#" class="px-2 font-rale font-size-14">20 534 rating | 1000+ answered quections</a>
+                            <!-- <a href="#" class="px-2 font-rale font-size-14">20 534 rating | 1000+ answered quections</a> -->
                         </div>
                         <hr class="m-0">
                         <!-- product price -->
@@ -115,8 +115,8 @@
                             <tr>
                                 <td>Deal Price:</td>
                                 <td class="font-size-20 text-danger">$152.00<small
-                                        class="text-dark font-size-12">&nbsp;&nbsp;inclusive of all taxes</small></td>
-                                <!-- span -->
+                                        class="text-dark font-size-12"><!--&nbsp;&nbsp;--> inclusive of all
+                                        taxes</small></td>
                             </tr>
                             <tr>
                                 <td>You Save:</td>
@@ -125,6 +125,7 @@
                         </table>
                         <!-- product price -->
                         <!-- #policy -->
+                        <!-- replace anchor to pragragh -->
                         <div id="policy">
                             <div class="d-flex">
                                 <div class="return text-center mr-5">
@@ -162,7 +163,7 @@
                                 <!-- color -->
                                 <div class="color my-3">
                                     <div class="d-flex justify-content-between">
-                                        <h6 class="font-baloo">Color:</h6>
+                                        <h6 class="font-baloo" style="display: flex;align-items: center;">Color:</h6>
                                         <div class="p-2 color-yellow-bg rounded-circle"><button
                                                 class="btn font-size-14"></button></div>
                                         <div class="p-2 color-primary-bg rounded-circle"><button
@@ -175,12 +176,18 @@
                             </div>
                             <div class="col-6">
                                 <!-- product qty section -->
-                                <div class="qty d-flex">
-                                    <h6 class="font-baloo">Qty</h6>
-                                    <div class="px-4 d-flex font-rale">
-                                        <button class="qty-up border bg-light"><i class="fas fa-angle-up"></i></button>
-                                        <input type="text" class="qty-input border px-2 w-50 bg-light" value="1" placeholder="1" disabled>
-                                        <button class="qty-down border bg-light"><i class="fas fa-angle-down"></i></button>
+                                <div class="color my-4">
+                                    <!-- نسال اسامه فيها -->
+                                    <div class="qty d-flex">
+                                        <h6 class="font-baloo">Qty</h6>
+                                        <div class="px-4 d-flex font-rale">
+                                            <button class="qty-up border bg-light" data-id="pro"><i
+                                                    class="fas fa-angle-up"></i></button>
+                                            <input type="text" class="qty-input border px-2 w-50 bg-light" value="1" data-id="pro"
+                                                placeholder="1" disabled>
+                                            <button class="qty-down border bg-light" data-id="pro"><i
+                                                    class="fas fa-angle-down"></i></button>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- product qty section -->
@@ -204,7 +211,7 @@
                         <!-- size -->
 
                     </div>
-                    <div class="col-12">
+                    <div class="col">
                         <h6 class="font-rubik">Product Descriptions</h6>
                         <hr>
                         <p class="font-rale .font-size-14"> Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -233,7 +240,7 @@
                     <div class="item py-2">
                         <div class="product font-rale">
                             <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                            <a href="#"><img src="./Images/products/1.png" alt="product1" class=""></a>
+                            <a href="#"><img src="./Images/products/1.png" alt="product1" class="img-fluid"></a>
                             <div class="text-center">
                                 <h6>Samsung Galaxy 10</h6>
                                 <div class="rating text-warning font-size-12">
