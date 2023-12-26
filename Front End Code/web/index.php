@@ -1,3 +1,6 @@
+<?php
+include 'C:\xampp\htdocs\e-commerce\Back End Code\login.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,50 +86,39 @@
                         <div class="col-12 col-md-7">
                             <div class="card" style="border-radius: 15px;">
                                 <div class="card-body p-5">
-                                    <h2 class="text-uppercase text-center font-rubik mb-5">Create an account</h2>
+                                    <h2 class="text-uppercase text-center font-rubik mb-5">Login</h2>
 
-                                    <form>
+                                    <form action='' method="post">
 
+                                        
                                         <div class="form-outline mb-4">
-                                            <label class="form-label">Your Name</label>
-                                            <input type="text" id="name"
-                                                class="form-control form-control-lg" />
-                                        </div>
-
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label">Your Email</label>
-                                            <input type="email" id="email"
+                                            <label class="form-label">Email</label>
+                                            <input type="email" id="email" name="email"
                                                 class="form-control form-control-lg" />
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label">Password</label>
-                                            <input type="password" id="password"
+                                            <input type="password" id="password" name="password"
                                                 class="form-control form-control-lg" />
                                         </div>
 
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label">Confirm password</label>
-                                            <input type="password" id="confirm_password"
-                                                class="form-control form-control-lg" />
-                                        </div>
-
-                                        <div class="form-check d-flex justify-content-start align-items-center mb-5">
+                                        
+                                        <div class="form-check d-flex justify-content-start align-items-center mb-3">
                                             <input class="form-check-input me-2" type="checkbox" value=""
                                                 id="check_terms" />
                                             <label class="form-check-label">
-                                                I agree all statements in <a href="#!" class="text-body"><u>Terms of
-                                                        service</u></a>
+                                                Save my login
                                             </label>
                                         </div>
-
+                                        
                                         <div class="d-flex justify-content-center">
-                                            <button type="button"
-                                                class="btn btn-warning btn-block btn-lg text-body">Register</button>
+                                            <button type="submit" name="submit"
+                                                class="btn btn-warning btn-block btn-lg text-body">Login</button>
                                         </div>
 
-                                        <p class="text-center text-muted mt-5 mb-0">Have already an account? <a
-                                                href="#!" class="fw-bold text-body"><u>Login here</u></a></p>
+                                        <p class="text-center text-muted mt-5 mb-0">Don't have an account? <a
+                                                href="registrition.php" class="fw-bold text-body"><u>Register here</u></a></p>
 
                                     </form>
 

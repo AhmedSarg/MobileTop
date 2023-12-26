@@ -1,6 +1,8 @@
+<?php
+include 'C:\xampp\htdocs\e-commerce\Back End Code\registration.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,6 +27,7 @@
 </head>
 
 <body>
+   
     <!-- start #header                                             the bg-color are bootstrap class     -->
     <header id="header">
         <!-- <div class="strip d-flex justify-content-between px-4 py-1 bg-light">
@@ -83,39 +86,50 @@
                         <div class="col-12 col-md-7">
                             <div class="card" style="border-radius: 15px;">
                                 <div class="card-body p-5">
-                                    <h2 class="text-uppercase text-center font-rubik mb-5">Login</h2>
+                                    <h2 class="text-uppercase text-center font-rubik mb-5">Create an account</h2>
 
-                                    <form>
+                                    <form action="" method="post">
 
-                                        
                                         <div class="form-outline mb-4">
-                                            <label class="form-label">Email</label>
-                                            <input type="email" id="email"
+                                            <label class="form-label">Your Name</label>
+                                            <input type="text" id="name" name="name"
+                                                class="form-control form-control-lg" />
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label">Your Email</label>
+                                            <input type="email" id="email" name="email"
                                                 class="form-control form-control-lg" />
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label">Password</label>
-                                            <input type="password" id="password"
+                                            <input type="password" id="password" name="password"
                                                 class="form-control form-control-lg" />
                                         </div>
 
-                                        
-                                        <div class="form-check d-flex justify-content-start align-items-center mb-3">
-                                            <input class="form-check-input me-2" type="checkbox" value=""
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label">Confirm password</label>
+                                            <input type="password" id="confirm_password" name="cpassword"
+                                                class="form-control form-control-lg" />
+                                        </div>
+
+                                        <div class="form-check d-flex justify-content-start align-items-center mb-5">
+                                            <input class="form-check-input me-2" type="checkbox" value="" required
                                                 id="check_terms" />
                                             <label class="form-check-label">
-                                                Save my login
+                                                I agree all statements in <a href="#!" class="text-body"><u>Terms of
+                                                        service</u></a>
                                             </label>
                                         </div>
 
                                         <div class="d-flex justify-content-center">
-                                            <button type="button"
-                                                class="btn btn-warning btn-block btn-lg text-body">Login</button>
+                                            <button type="submit"
+                                               name="submit" class="btn btn-warning btn-block btn-lg text-body">Register</button>
                                         </div>
 
-                                        <p class="text-center text-muted mt-5 mb-0">Don't have an account? <a
-                                                href="#!" class="fw-bold text-body"><u>Register here</u></a></p>
+                                        <p class="text-center text-muted mt-5 mb-0">Have already an account? <a
+                                                href="#!" class="fw-bold text-body"><u>Login here</u></a></p>
 
                                     </form>
 
@@ -199,6 +213,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"
         integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 
 </html>
+
+
+
