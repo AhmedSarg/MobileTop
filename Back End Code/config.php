@@ -1,7 +1,7 @@
 <?php
 
 include 'models/connection.php';
-include 'models/product.php';
+include 'models/product_model.php';
 
 $db = new Connection();
 

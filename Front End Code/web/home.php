@@ -174,40 +174,45 @@ include '../../Back End Code/home.php';
     <!-- ----------------------------------------------------------------------------------------------------------------- -->
     <section id="special-price">
         <div class="container">
-            <h4 class="font-rubik font-size-20">Special Price</h4>
+            <h4 class="font-rubik font-size-20">Top Rated</h4>
             <div id="filters" class="button-group text-right">
                 <button class="btn is-checked" data-filter="*">All Brand</button>
                 <button class="btn" data-filter=".Apple">Apple</button>
                 <button class="btn" data-filter=".Samsung">Samsung</button>
-                <button class="btn" data-filter=".Redmi">Redmi</button>
+                <button class="btn" data-filter=".Xiaomi">Xiaomi</button>
             </div>
 
             <div class="grid">
                 <!-- المنتج الاول (index.js -- comment== isotop filter" روح علي هتلاقي فكره الفلتر )-->
                 <!--   انا استخدمت ال جرييد علشان اتحكم في الي هيظهر لما اعمل فلتر لشي معين   -->
-                <div class="grid-item Apple border">
+                <?php
+                foreach ($topRatedProducts as $topRatedProduct) {
+                    echo '
+                <div class="grid-item ' . $topRatedProduct["name"] . ' border">
                     <!--   انا استخدمت ال جرييد علشان اتحكم في الي هيظهر لما اعمل فلتر لشي معين هنا هعمل لابل   -->
                     <div class="tem py-2" style="width: 200px">
                         <!--  ( كمان اتحكمت في حجم الصوره  py-2 عملت بادينج من فوق وتحت باستخدام )-->
                         <div class="product font-rale">
                             <a href="#"
                             ><img
-                                        src="Images/products/13.png"
+                                        src="' . $topRatedProduct["picture"] . '"
                                         alt="product1"
                                         class="img-fluid"
                                 /></a>
                             <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
                             <div class="text-center">
-                                <h6>Apple Iphone x</h6>
-                                <div class="rating text-warning font-size-12">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="far fa-star"></i></span>
-                                </div>
+                                <h6>' . $topRatedProduct["name"] . ' ' . $topRatedProduct["model"] . '</h6>
+                                <div class="rating text-warning font-size-12">';
+                    for ($i = 0; $i < floor($topRatedProduct["rate"]); $i++) {
+                        echo '<span><i class="fas fa-star"></i></span>';
+                    }
+                    for ($i = 0; $i < 5 - floor($topRatedProduct["rate"]); $i++) {
+                        echo '<span><i class="far fa-star"></i></span>';
+                    }
+                    echo '</div>
                                 <div class="price py-2">
-                                    <span>$152</span>
+                                    <span style="font-weight: bold">$'.$topRatedProduct["price"].'</span>
+                                    <span name="discount" style="color: darkred; font-weight: bolder; margin-left: 50px">' . $discount . '%</span>
                                 </div>
                                 <button type="submit" class="btn btn-warning font-size-12">
                                     Add to Cart
@@ -215,294 +220,14 @@ include '../../Back End Code/home.php';
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="grid-item Apple border">
-                    <!--   انا استخدمت ال جرييد علشان اتحكم في الي هيظهر لما اعمل فلتر لشي معين هنا --- هعمل لابل   -->
-                    <div class="tem py-2" style="width: 200px">
-                        <!--  (py-2 عملت بادينج من فوق وتحت باستخدام )-->
-                        <div class="product font-rale">
-                            <a href="#"
-                            ><img
-                                        src="Images/products/14.png"
-                                        alt="product1"
-                                        class="img-fluid"
-                                /></a>
-                            <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                            <div class="text-center">
-                                <h6>Apple Iphone SE</h6>
-                                <div class="rating text-warning font-size-12">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="far fa-star"></i></span>
-                                </div>
-                                <div class="price py-2">
-                                    <span>$100</span>
-                                </div>
-                                <button type="submit" class="btn btn-warning font-size-12">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-item Apple border">
-                    <!--   انا استخدمت ال جرييد علشان اتحكم في الي هيظهر لما اعمل فلتر لشي معين هنا --- هعمل لابل   -->
-                    <div class="tem py-2" style="width: 200px">
-                        <!--  (py-2 عملت بادينج من فوق وتحت باستخدام )-->
-                        <div class="product font-rale">
-                            <a href="#"
-                            ><img
-                                        src="Images/products/15.png"
-                                        alt="product1"
-                                        class="img-fluid"
-                                /></a>
-                            <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                            <div class="text-center">
-                                <h6>Apple Iphone 6s</h6>
-                                <div class="rating text-warning font-size-12">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="far fa-star"></i></span>
-                                </div>
-                                <div class="price py-2">
-                                    <span>$100</span>
-                                </div>
-                                <button type="submit" class="btn btn-warning font-size-12">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-item Samsung border">
-                    <div class="tem py-2" style="width: 200px">
-                        <!--  (py-2 عملت بادينج من فوق وتحت باستخدام )-->
-                        <div class="product font-rale">
-                            <a href="#"
-                            ><img
-                                        src="Images/products/11.png"
-                                        alt="product1"
-                                        class="img-fluid"
-                                /></a>
-                            <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                            <div class="text-center">
-                                <h6>Samsung Dous 2</h6>
-                                <div class="rating text-warning font-size-12">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="far fa-star"></i></span>
-                                </div>
-                                <div class="price py-2">
-                                    <span>$152</span>
-                                </div>
-                                <button type="submit" class="btn btn-warning font-size-12">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-item Samsung border">
-                    <div class="tem py-2" style="width: 200px">
-                        <!--  (py-2 عملت بادينج من فوق وتحت باستخدام )-->
-                        <div class="product font-rale">
-                            <a href="#"
-                            ><img
-                                        src="Images/products/12.png"
-                                        alt="product1"
-                                        class="img-fluid"
-                                /></a>
-                            <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                            <div class="text-center">
-                                <h6>Samsung Galaxy S10</h6>
-                                <div class="rating text-warning font-size-12">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="far fa-star"></i></span>
-                                </div>
-                                <div class="price py-2">
-                                    <span>$170</span>
-                                </div>
-                                <button type="submit" class="btn btn-warning font-size-12">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-item Samsung border">
-                    <div class="tem py-2" style="width: 200px">
-                        <!--  (py-2 عملت بادينج من فوق وتحت باستخدام )-->
-                        <div class="product font-rale">
-                            <a href="#"
-                            ><img
-                                        src="Images/products/10.png"
-                                        alt="product1"
-                                        class="img-fluid"
-                                /></a>
-                            <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                            <div class="text-center">
-                                <h6>Samsung Galaxy Edge</h6>
-                                <div class="rating text-warning font-size-12">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="far fa-star"></i></span>
-                                </div>
-                                <div class="price py-2">
-                                    <span>$170</span>
-                                </div>
-                                <button type="submit" class="btn btn-warning font-size-12">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-item Samsung border">
-                    <div class="tem py-2" style="width: 200px">
-                        <!--  (py-2 عملت بادينج من فوق وتحت باستخدام )-->
-                        <div class="product font-rale">
-                            <a href="#"
-                            ><img
-                                        src="Images/products/8.png"
-                                        alt="product1"
-                                        class="img-fluid"
-                                /></a>
-                            <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                            <div class="text-center">
-                                <h6>Samsung Galaxy Smart</h6>
-                                <div class="rating text-warning font-size-12">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="far fa-star"></i></span>
-                                </div>
-                                <div class="price py-2">
-                                    <span>$170</span>
-                                </div>
-                                <button type="submit" class="btn btn-warning font-size-12">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-item Redmi border">
-                    <div class="tem py-2" style="width: 200px">
-                        <!--  (py-2 عملت بادينج من فوق وتحت باستخدام )-->
-                        <div class="product font-rale">
-                            <a href="#"
-                            ><img
-                                        src="Images/products/3.png"
-                                        alt="product1"
-                                        class="img-fluid"
-                                /></a>
-                            <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                            <div class="text-center">
-                                <h6>Redmi Note 5</h6>
-                                <div class="rating text-warning font-size-12">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="far fa-star"></i></span>
-                                </div>
-                                <div class="price py-2">
-                                    <span>$152</span>
-                                </div>
-                                <button type="submit" class="btn btn-warning font-size-12">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-item Redmi border">
-                    <div class="tem py-2" style="width: 200px">
-                        <!--  (py-2 عملت بادينج من فوق وتحت باستخدام )-->
-                        <div class="product font-rale">
-                            <a href="#"
-                            ><img
-                                        src="Images/products/4.png"
-                                        alt="product1"
-                                        class="img-fluid"
-                                /></a>
-                            <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                            <div class="text-center">
-                                <h6>Redmi Note 7 pro</h6>
-                                <div class="rating text-warning font-size-12">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="far fa-star"></i></span>
-                                </div>
-                                <div class="price py-2">
-                                    <span>$152</span>
-                                </div>
-                                <button type="submit" class="btn btn-warning font-size-12">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-item Redmi border">
-                    <div class="tem py-2" style="width: 200px">
-                        <!--  (py-2 عملت بادينج من فوق وتحت باستخدام )-->
-                        <div class="product font-rale">
-                            <a href="#"
-                            ><img
-                                        src="Images/products/5.png"
-                                        alt="product1"
-                                        class="img-fluid"
-                                /></a>
-                            <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                            <div class="text-center">
-                                <h6>Redmi 5 lite</h6>
-                                <div class="rating text-warning font-size-12">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="far fa-star"></i></span>
-                                </div>
-                                <div class="price py-2">
-                                    <span>$152</span>
-                                </div>
-                                <button type="submit" class="btn btn-warning font-size-12">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>';
+                }
+                ?>
             </div>
         </div>
     </section>
     <!-- end special price -->
-
     <!-- ----------------------------------------------------------------------------------------------------------------- -->
-
     <!-- Banner Ads  -->
     <section id="banner_adds">
         <div class="container py-5 text-center">
@@ -511,209 +236,30 @@ include '../../Back End Code/home.php';
         </div>
     </section>
     <!-- !Banner Ads  -->
-
     <!-- New Phones   طبعا لما بكتب الكود بس مش هيظهروا غير لما اعرفوا من خلال  index.js  -->
     <section id="new-phones">
         <div class="container">
             <h4 class="font-rubik font-size-20">New Phones</h4>
             <div class="owl-carousel owl-theme">
                 <!-- the five top salary        the bg-color are bootstrap class-->
-
-                <div class="item py-2 bg-light">
+                <?php
+                    foreach ($comingSoonProducts as $comingSoonProduct) {
+                        echo '<div class="item py-2 bg-light" style="margin-bottom: 50px">
                     <div class="product font-rale">
                         <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
                         <a href="#"
                         ><img
-                                    src="Images/products/1.png"
-                                    alt="product1"
+                                    src="' . $comingSoonProduct["picture"] . '"
+                                    alt="' . $comingSoonProduct["model"] . '"
                                     class="img-fluid"
                             /></a>
                         <div class="text-center">
-                            <h6>Samsung Galaxy 10</h6>
-                            <div class="rating text-warning font-size-12">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="far fa-star"></i></span>
-                            </div>
-                            <div class="price py-2">
-                                <span>$152</span>
-                            </div>
-                            <button type="submit" class="btn btn-warning font-size-12">
-                                Add to Cart
-                            </button>
+                            <h6>' . $comingSoonProduct["name"] . ' ' . $comingSoonProduct["model"] . '</h6>
                         </div>
                     </div>
-                </div>
-
-                <div class="item py-2 bg-light">
-                    <div class="product font-rale">
-                        <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                        <a href="#"
-                        ><img
-                                    src="Images/products/2.png"
-                                    alt="product1"
-                                    class="img-fluid"
-                            /></a>
-                        <div class="text-center">
-                            <h6>Samsung Galaxy 10</h6>
-                            <div class="rating text-warning font-size-12">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="far fa-star"></i></span>
-                            </div>
-                            <div class="price py-2">
-                                <span>$152</span>
-                            </div>
-                            <button type="submit" class="btn btn-warning font-size-12">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item py-2 bg-light">
-                    <div class="product font-rale">
-                        <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                        <a href="#"
-                        ><img
-                                    src="Images/products/3.png"
-                                    alt="product1"
-                                    class="img-fluid"
-                            /></a>
-                        <div class="text-center">
-                            <h6>Samsung Galaxy 10</h6>
-                            <div class="rating text-warning font-size-12">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="far fa-star"></i></span>
-                            </div>
-                            <div class="price py-2">
-                                <span>$152</span>
-                            </div>
-                            <button type="submit" class="btn btn-warning font-size-12">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item py-2 bg-light">
-                    <div class="product font-rale">
-                        <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                        <a href="#"
-                        ><img
-                                    src="Images/products/4.png"
-                                    alt="product1"
-                                    class="img-fluid"
-                            /></a>
-                        <div class="text-center">
-                            <h6>Samsung Galaxy 10</h6>
-                            <div class="rating text-warning font-size-12">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="far fa-star"></i></span>
-                            </div>
-                            <div class="price py-2">
-                                <span>$152</span>
-                            </div>
-                            <button type="submit" class="btn btn-warning font-size-12">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item py-2 bg-light">
-                    <div class="product font-rale">
-                        <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                        <a href="#"
-                        ><img
-                                    src="Images/products/5.png"
-                                    alt="product1"
-                                    class="img-fluid"
-                            /></a>
-                        <div class="text-center">
-                            <h6>Samsung Galaxy 10</h6>
-                            <div class="rating text-warning font-size-12">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="far fa-star"></i></span>
-                            </div>
-                            <div class="price py-2">
-                                <span>$152</span>
-                            </div>
-                            <button type="submit" class="btn btn-warning font-size-12">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item py-2 bg-light">
-                    <div class="product font-rale">
-                        <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                        <a href="#"
-                        ><img
-                                    src="Images/products/1.png"
-                                    alt="product1"
-                                    class="img-fluid"
-                            /></a>
-                        <div class="text-center">
-                            <h6>Samsung Galaxy 10</h6>
-                            <div class="rating text-warning font-size-12">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="far fa-star"></i></span>
-                            </div>
-                            <div class="price py-2">
-                                <span>$152</span>
-                            </div>
-                            <button type="submit" class="btn btn-warning font-size-12">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item py-2 bg-light">
-                    <div class="product font-rale">
-                        <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                        <a href="#"
-                        ><img
-                                    src="Images/products/1.png"
-                                    alt="product1"
-                                    class="img-fluid"
-                            /></a>
-                        <div class="text-center">
-                            <h6>Samsung Galaxy 10</h6>
-                            <div class="rating text-warning font-size-12">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="far fa-star"></i></span>
-                            </div>
-                            <div class="price py-2">
-                                <span>$152</span>
-                            </div>
-                            <button type="submit" class="btn btn-warning font-size-12">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                </div>';
+                    }
+                ?>
             </div>
         </div>
     </section>
