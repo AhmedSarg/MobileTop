@@ -39,7 +39,7 @@
 </head>
 <body>
     <h4>
-        Error: Product Not Found
+        404 Error: Product Not Found
     </h4>
 </body>
 </html>

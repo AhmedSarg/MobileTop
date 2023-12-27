@@ -44,7 +44,6 @@ if ($error) {
     <!-- custom css file -->
     <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
 <!-- start #header                  the bg-color are bootstrap class     -->
 <header id="header">
@@ -289,22 +288,22 @@ if ($error) {
                     </div>
                     <!-- size -->
                 </div>
-                <div class="col">
-                    <h6 class="font-rubik">Product Descriptions</h6>
-                    <hr/>
-                    <p class="font-rale .font-size-14">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi,
-                        debitis cum. Asperiores atque commodi, vero, blanditiis quos aut
-                        necessitatibus odit laudantium libero labore repellat voluptates
-                        doloremque dolor sit, recusandae voluptatum.
-                    </p>
-                    <p class="font-rale .font-size-14">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi,
-                        debitis cum. Asperiores atque commodi, vero, blanditiis quos aut
-                        necessitatibus odit laudantium libero labore repellat voluptates
-                        doloremque dolor sit, recusandae voluptatum.
-                    </p>
-                </div>
+<!--                <div class="col">-->
+<!--                    <h6 class="font-rubik">Product Descriptions</h6>-->
+<!--                    <hr/>-->
+<!--                    <p class="font-rale .font-size-14">-->
+<!--                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi,-->
+<!--                        debitis cum. Asperiores atque commodi, vero, blanditiis quos aut-->
+<!--                        necessitatibus odit laudantium libero labore repellat voluptates-->
+<!--                        doloremque dolor sit, recusandae voluptatum.-->
+<!--                    </p>-->
+<!--                    <p class="font-rale .font-size-14">-->
+<!--                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi,-->
+<!--                        debitis cum. Asperiores atque commodi, vero, blanditiis quos aut-->
+<!--                        necessitatibus odit laudantium libero labore repellat voluptates-->
+<!--                        doloremque dolor sit, recusandae voluptatum.-->
+<!--                    </p>-->
+<!--                </div>-->
             </div>
         </div>
     </section>
