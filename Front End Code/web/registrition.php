@@ -1,5 +1,5 @@
 <?php
-include 'C:\xampp\htdocs\e-commerce\Back End Code\registration.php'
+include '..\..\Back End Code\registration.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">

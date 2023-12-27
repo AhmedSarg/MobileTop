@@ -1,5 +1,5 @@
 <?php
-include 'connection.php';
+include 'config.php';
 
 if(isset($_POST['submit'])){
 
@@ -18,5 +18,3 @@ if(isset($_POST['submit'])){
    }
 
 }
-
-?>

@@ -319,7 +319,7 @@
                 <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
                 <a href="#"
                   ><img
-                    src="./Images/products/1.png"
+                    src="Images/products/1.png"
                     alt="product1"
                     class="img-fluid"
                 /></a>
@@ -346,7 +346,7 @@
                 <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
                 <a href="#"
                   ><img
-                    src="./Images/products/2.png"
+                    src="Images/products/2.png"
                     alt="product1"
                     class="img-fluid"
                 /></a>
@@ -373,7 +373,7 @@
                 <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
                 <a href="#"
                   ><img
-                    src="./Images/products/3.png"
+                    src="Images/products/3.png"
                     alt="product1"
                     class="img-fluid"
                 /></a>
@@ -400,7 +400,7 @@
                 <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
                 <a href="#"
                   ><img
-                    src="./Images/products/4.png"
+                    src="Images/products/4.png"
                     alt="product1"
                     class="img-fluid"
                 /></a>
@@ -427,7 +427,7 @@
                 <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
                 <a href="#"
                   ><img
-                    src="./Images/products/5.png"
+                    src="Images/products/5.png"
                     alt="product1"
                     class="img-fluid"
                 /></a>
@@ -454,7 +454,7 @@
                 <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
                 <a href="#"
                   ><img
-                    src="./Images/products/1.png"
+                    src="Images/products/1.png"
                     alt="product1"
                     class="img-fluid"
                 /></a>
@@ -481,7 +481,7 @@
                 <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
                 <a href="#"
                   ><img
-                    src="./Images/products/1.png"
+                    src="Images/products/1.png"
                     alt="product1"
                     class="img-fluid"
                 /></a>
