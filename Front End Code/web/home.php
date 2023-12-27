@@ -1,5 +1,7 @@
 <?php
+include '../../Back End Code/config.php';
 include '../../Back End Code/home.php';
+include '../../Back End Code/cart.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,11 +89,11 @@ include '../../Back End Code/home.php';
             </ul>
             <!-- small cart  border-radius == bootstrap == border raduis   -->
             <form action="#" class="font-size-14 font-rale">
-                <a href="#" class="py-2 rounded-pill color-primary-bg">
+                <a href="cart.php" class="py-2 rounded-pill color-primary-bg">
               <span class="font-size-16 px-2 text-white"
               ><i class="fas fa-shopping-cart"></i
                   ></span>
-                    <span class="px-3 py-2 rounded-pill text-dark bg-light">0</span>
+                    <span class="px-3 py-2 rounded-pill text-dark bg-light"><?=$countCart??0;?></span>
                 </a>
             </form>
         </div>
@@ -117,14 +119,13 @@ include '../../Back End Code/home.php';
         </div>
     </section>
     <!-- </end of the first big three images -- الي هما shop now > -->
-
     <!-- top sale المنتجات الاولي -->
     <!-- ----------------------------------------------------------------------------------------------------------------- -->
     <section id="top-sale">
         <div class="container py-5">
             <!--  استخدمت كونتينر علشان اخليههم يجوا في النص ودده عن طريق البوتستراب -->
             <h4 class="font-rubik font-size-20">Top Sale</h4>
-            <hr/>
+            <hr>
             <!-- <the secound  images -- الي هما top-sale > -->
             <!-- owl carousel -->
             <div class="owl-carousel owl-theme">
@@ -132,12 +133,13 @@ include '../../Back End Code/home.php';
                 <?php
                 foreach ($topSaleProducts as $topSaleProduct) {
                     $discount = $topSaleProduct["discount"] * 100;
-//                    echo ;
                     echo '
+                    <form action="" method="post">
+                    <input type="hidden" name="product_id" value="'.$topSaleProduct["id"].'">
                      <div class="item py-2">
               <div class="product font-rale">
                 <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                <a href="#" name="image">
+                <a href="product.php?id=' . $topSaleProduct["id"] . '" name="image">
                 <img
                     src="' . $topSaleProduct["picture"] . '"
                     alt="product1"
@@ -158,12 +160,13 @@ include '../../Back End Code/home.php';
                     <span name="price" style="font-weight: bold">$' . $topSaleProduct["price"] . '</span>
                     <span name="discount" style="color: darkred; font-weight: bolder; margin-left: 50px">' . $discount . '%</span>
                   </div>
-                  <button type="submit" name="add_cart" class="btn btn-warning font-size-12">
+                  <button type="submit" name="add_cart_without_details" class="btn btn-warning font-size-12">
                     Add to Cart
                   </button>
                 </div>
               </div>
             </div>  
+            </form>
                     ';
                 }
                 ?>
@@ -174,7 +177,7 @@ include '../../Back End Code/home.php';
     <!-- ----------------------------------------------------------------------------------------------------------------- -->
     <section id="special-price">
         <div class="container">
-            <h4 class="font-rubik font-size-20">Top Rated</h4>
+            <h4 class="font-rubik font-size-20">All Products</h4>
             <div id="filters" class="button-group text-right">
                 <button class="btn is-checked" data-filter="*">All Brand</button>
                 <button class="btn" data-filter=".Apple">Apple</button>
@@ -186,41 +189,46 @@ include '../../Back End Code/home.php';
                 <!-- المنتج الاول (index.js -- comment== isotop filter" روح علي هتلاقي فكره الفلتر )-->
                 <!--   انا استخدمت ال جرييد علشان اتحكم في الي هيظهر لما اعمل فلتر لشي معين   -->
                 <?php
-                foreach ($topRatedProducts as $topRatedProduct) {
+                foreach ($allProducts as $product) {
+                    $discount = $product["discount"] * 100;
                     echo '
-                <div class="grid-item ' . $topRatedProduct["name"] . ' border">
+                    <form action="" method="post">
+                    <input type="hidden" name="product_id" value="'.$product["id"].'">
+                <div class="grid-item ' . $product["name"] . ' border">
                     <!--   انا استخدمت ال جرييد علشان اتحكم في الي هيظهر لما اعمل فلتر لشي معين هنا هعمل لابل   -->
                     <div class="tem py-2" style="width: 200px">
                         <!--  ( كمان اتحكمت في حجم الصوره  py-2 عملت بادينج من فوق وتحت باستخدام )-->
                         <div class="product font-rale">
-                            <a href="#"
+                            <a href="product.php?id=' . $product["id"] . '"
                             ><img
-                                        src="' . $topRatedProduct["picture"] . '"
+                                        src="' . $product["picture"] . '"
                                         alt="product1"
                                         class="img-fluid"
                                 /></a>
                             <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
                             <div class="text-center">
-                                <h6>' . $topRatedProduct["name"] . ' ' . $topRatedProduct["model"] . '</h6>
+                                <h6>' . $product["name"] . ' ' . $product["model"] . '</h6>
                                 <div class="rating text-warning font-size-12">';
-                    for ($i = 0; $i < floor($topRatedProduct["rate"]); $i++) {
+                    for ($i = 0; $i < floor($product["rate"]); $i++) {
                         echo '<span><i class="fas fa-star"></i></span>';
                     }
-                    for ($i = 0; $i < 5 - floor($topRatedProduct["rate"]); $i++) {
+                    for ($i = 0; $i < 5 - floor($product["rate"]); $i++) {
                         echo '<span><i class="far fa-star"></i></span>';
                     }
                     echo '</div>
                                 <div class="price py-2">
-                                    <span style="font-weight: bold">$'.$topRatedProduct["price"].'</span>
+                                    <span style="font-weight: bold">$' . $product["price"] . '</span>
                                     <span name="discount" style="color: darkred; font-weight: bolder; margin-left: 50px">' . $discount . '%</span>
                                 </div>
-                                <button type="submit" class="btn btn-warning font-size-12">
+                                <button type="submit" name="add_cart_without_details" class="btn btn-warning font-size-12">
                                     Add to Cart
                                 </button>
                             </div>
                         </div>
                     </div>
-                </div>';
+                </div>
+                </form>
+                ';
                 }
                 ?>
             </div>
@@ -239,26 +247,48 @@ include '../../Back End Code/home.php';
     <!-- New Phones   طبعا لما بكتب الكود بس مش هيظهروا غير لما اعرفوا من خلال  index.js  -->
     <section id="new-phones">
         <div class="container">
-            <h4 class="font-rubik font-size-20">New Phones</h4>
+            <h4 class="font-rubik font-size-20">Top Rated</h4>
             <div class="owl-carousel owl-theme">
-                <!-- the five top salary        the bg-color are bootstrap class-->
+                <!-- the five top salary the bg-color are bootstrap class-->
                 <?php
-                    foreach ($comingSoonProducts as $comingSoonProduct) {
-                        echo '<div class="item py-2 bg-light" style="margin-bottom: 50px">
-                    <div class="product font-rale">
-                        <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                        <a href="#"
-                        ><img
-                                    src="' . $comingSoonProduct["picture"] . '"
-                                    alt="' . $comingSoonProduct["model"] . '"
-                                    class="img-fluid"
-                            /></a>
-                        <div class="text-center">
-                            <h6>' . $comingSoonProduct["name"] . ' ' . $comingSoonProduct["model"] . '</h6>
-                        </div>
-                    </div>
-                </div>';
+                foreach ($topRatedProducts as $topRatedProduct) {
+                    $discount = $topRatedProduct["discount"] * 100;
+                    echo '
+                    <form action="" method="post">
+                    <input type="hidden" name="product_id" value="'.$topRatedProduct["id"].'">
+                     <div class="item py-2">
+              <div class="product font-rale">
+                <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
+                <a href="product.php?id=' . $topRatedProduct["id"] . '" name="image">
+                <img
+                    src="' . $topRatedProduct["picture"] . '"
+                    alt="product1"
+                    class="img-fluid"
+                />
+                </a>
+                <div class="text-center">
+                  <h6 name ="product_name">' . $topRatedProduct["name"] . " " . $topRatedProduct["model"] . '</h6>
+                  <div class="rating text-warning font-size-12">';
+                    for ($i = 0; $i < floor($topRatedProduct["rate"]); $i++) {
+                        echo '<span><i class="fas fa-star"></i></span>';
                     }
+                    for ($i = 0; $i < 5 - floor($topRatedProduct["rate"]); $i++) {
+                        echo '<span><i class="far fa-star"></i></span>';
+                    }
+                    echo '</div>
+                  <div class="price py-2">
+                    <span name="price" style="font-weight: bold">$' . $topRatedProduct["price"] . '</span>
+                    <span name="discount" style="color: darkred; font-weight: bolder; margin-left: 50px">' . $discount . '%</span>
+                  </div>
+                  <button type="submit" name="add_cart_without_details" class="btn btn-warning font-size-12">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>  
+            </form>
+                    ';
+                }
                 ?>
             </div>
         </div>

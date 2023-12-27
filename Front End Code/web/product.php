@@ -1,5 +1,7 @@
 <?php
+include '../../Back End Code/config.php';
 include '../../Back End Code/product.php';
+include '../../Back End Code/cart.php';
 echo $error;
 if ($error) {
     header('Location: error.php');
@@ -91,11 +93,11 @@ if ($error) {
             </ul>
             <!-- small cart  border-radius == bootstrap == border raduis   -->
             <form action="#" class="font-size-14 font-rale">
-                <a href="#" class="py-2 rounded-pill color-primary-bg">
+                <a href="cart.php" class="py-2 rounded-pill color-primary-bg">
               <span class="font-size-16 px-2 text-white"
               ><i class="fas fa-shopping-cart"></i
                   ></span>
-                    <span class="px-3 py-2 rounded-pill text-dark bg-light">0</span>
+                    <span class="px-3 py-2 rounded-pill text-dark bg-light"><?=$countCart??0;?></span>
                 </a>
             </form>
         </div>
@@ -104,230 +106,256 @@ if ($error) {
 </header>
 <!-- end #header -->
 
-<!-- start #main-site -->
-<main id="main-site">
-    <!-- product -->
-    <section id="product" class="py-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <img
-                            src="<?= $product["picture"] ?>"
-                            alt="<?= $product["name"] . ' ' . $product["model"] ?>"
-                            class="img-fluid"
-                    />
-                    <div class="form-row pt-4 font-size-16 font-baloo">
-                        <div class="col">
-                            <button type="submit" class="btn btn-danger form-control">
-                                Proceed to Buy
-                            </button>
-                        </div>
-                        <div class="col">
-                            <button type="submit" class="btn btn-warning form-control">
-                                Add to card
-                            </button>
+<form method="post" action="">
+    <!-- start #main-site -->
+    <main id="main-site">
+        <!-- product -->
+        <section id="product" class="py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img
+                                src="<?= $product["picture"] ?>"
+                                alt="<?= $product["name"] . ' ' . $product["model"] ?>"
+                                class="img-fluid"
+                        />
+                        <div class="form-row pt-4 font-size-16 font-baloo">
+                            <div class="col">
+                                <button type="submit" class="btn btn-danger form-control">
+                                    Proceed to Buy
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button type="submit" name="add_cart_with_details" class="btn btn-warning form-control">
+                                    Add to Cart
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 py-5">
-                    <h5 class="font-baloo font-size-20"><?= $product["model"] ?></h5>
-                    <small>by <?= $product["name"] ?></small>
-                    <div class="d-flex">
-                        <div class="rating text-warning font-size-12">
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="far fa-star"></i></span>
-                        </div>
-                        <!-- <a href="#" class="px-2 font-rale font-size-14">20 534 rating | 1000+ answered quections</a> -->
-                    </div>
-                    <hr class="m-0"/>
-                    <!-- product price -->
-                    <table class="font-rale font-size-14 my-3">
-                        <tr>
-                            <td>M.R.P.</td>
-                            <td><strike><?= $product["discount"] * 100 ?>%</strike></td>
-                        </tr>
-                        <tr>
-                            <td>Deal Price:</td>
-                            <td class="font-size-20 text-danger">
-                                $<?= $product["price"] ?><small class="text-dark font-size-12"
-                                ><!--&nbsp;&nbsp;-->
-                                    inclusive of all taxes</small
-                                >
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>You Save:</td>
-                            <td class="font-size-20 text-danger">$<?= $product["discount"] * $product["price"] ?></td>
-                        </tr>
-                    </table>
-                    <!-- product price -->
-                    <!-- #policy -->
-                    <!-- replace anchor to pragragh -->
-                    <div id="policy">
+                    <div class="col-sm-6 py-5">
+                        <h5 class="font-baloo font-size-20"><?= $product["model"] ?></h5>
+                        <small>by <?= $product["name"] ?></small>
                         <div class="d-flex">
-                            <div class="return text-center mr-5">
-                                <div class="font-size-20 my-2">
+                            <div class="rating text-warning font-size-12">
+                                <?php
+                                $discount = $product["discount"] * 100;
+                                for ($i = 0; $i < floor($product["rate"]); $i++) {
+                                    echo '<span><i class="fas fa-star"></i></span>';
+                                }
+                                for ($i = 0; $i < 5 - floor($product["rate"]); $i++) {
+                                    echo '<span><i class="far fa-star"></i></span>';
+                                }
+                                ?>
+                            </div>
+                            <!-- <a href="#" class="px-2 font-rale font-size-14">20 534 rating | 1000+ answered quections</a> -->
+                        </div>
+                        <hr class="m-0"/>
+                        <!-- product price -->
+                        <table class="font-rale font-size-14 my-3">
+                            <tr>
+                                <td>M.R.P.</td>
+                                <td><strike><?= $product["discount"] * 100 ?>%</strike></td>
+                            </tr>
+                            <tr>
+                                <td>Deal Price:</td>
+                                <td class="font-size-20 text-danger">
+                                    $<?= $product["price"] ?><small class="text-dark font-size-12"
+                                    ><!--&nbsp;&nbsp;-->
+                                        inclusive of all taxes</small
+                                    >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>You Save:</td>
+                                <td class="font-size-20 text-danger">
+                                    $<?= $product["discount"] * $product["price"] ?></td>
+                            </tr>
+                        </table>
+                        <!-- product price -->
+                        <!-- #policy -->
+                        <!-- replace anchor to pragragh -->
+                        <div id="policy">
+                            <div class="d-flex">
+                                <div class="return text-center mr-5">
+                                    <div class="font-size-20 my-2">
                       <span
                               class="fas fa-retweet border p-3 rounded-pill color-secound"
                       ></span>
+                                    </div>
+                                    <a href="#" class="font-rale font-size-12"
+                                    >10 Days <br/>
+                                        Replacement</a
+                                    >
                                 </div>
-                                <a href="#" class="font-rale font-size-12"
-                                >10 Days <br/>
-                                    Replacement</a
-                                >
-                            </div>
-                            <div class="return text-center mr-5">
-                                <div class="font-size-20 my-2">
+                                <div class="return text-center mr-5">
+                                    <div class="font-size-20 my-2">
                       <span
                               class="fas fa-truck border p-3 rounded-pill color-secound"
                       ></span>
+                                    </div>
+                                    <a href="#" class="font-rale font-size-12"
+                                    >Daily Tuition <br/>
+                                        Delivered</a
+                                    >
                                 </div>
-                                <a href="#" class="font-rale font-size-12"
-                                >Daily Tuition <br/>
-                                    Deliverd</a
-                                >
-                            </div>
-                            <div class="return text-center mr-5">
-                                <div class="font-size-20 my-2">
+                                <div class="return text-center mr-5">
+                                    <div class="font-size-20 my-2">
                       <span
                               class="fas fa-check-double border p-3 rounded-pill color-secound"
                       ></span>
-                                </div>
-                                <a href="#" class="font-rale font-size-12"
-                                >1 Year <br/>
-                                    Warently</a
-                                >
-                            </div>
-                        </div>
-                    </div>
-                    <!-- #policy -->
-                    <hr/>
-                    <!-- order-details  -->
-                    <div
-                            id="order-details"
-                            class="font-rale d-flex flex-column text-dark"
-                    >
-                        <small>Delivery by:Mar29 - Apr 1</small>
-                        <small
-                        >Sold by <a href="#">Daily Electronics</a> (<?= $product["rate"] ?> out of 5)</small
-                        >
-                        <small
-                        ><i class="fas fa-map-marker-alt color-primary"></i
-                            >&nbsp;&nbsp;Deliver to customer-424201</small
-                        >
-                    </div>
-                    <!-- order-details  -->
-                    <div class="row">
-                        <div class="col-6">
-                            <!-- color -->
-                            <div class="color my-3">
-                                <div class="d-flex justify-content-between">
-                                    <h6
-                                            class="font-baloo"
-                                            style="display: flex; align-items: center"
+                                    </div>
+                                    <a href="#" class="font-rale font-size-12"
+                                    >1 Year <br/>
+                                        Warranty</a
                                     >
-                                        Color:
-                                    </h6>
-                                    <div class="p-2 color-yellow-bg rounded-circle">
-                                        <button class="btn font-size-14"></button>
-                                    </div>
-                                    <div class="p-2 color-primary-bg rounded-circle">
-                                        <button class="btn font-size-14"></button>
-                                    </div>
-                                    <div class="p-2 color-secound-bg rounded-circle">
-                                        <button class="btn font-size-14"></button>
-                                    </div>
                                 </div>
                             </div>
-                            <!-- color -->
                         </div>
-                        <div class="col-6">
-                            <!-- product qty section -->
-                            <div class="color my-4">
-                                <!-- نسال اسامه فيها -->
-                                <div class="qty d-flex">
-                                    <h6 class="font-baloo">Qty</h6>
-                                    <div class="px-4 d-flex font-rale">
-                                        <button class="qty-up border bg-light" data-id="pro">
-                                            <i class="fas fa-angle-up"></i>
-                                        </button>
-                                        <input
-                                                type="text"
-                                                class="qty-input border px-2 w-50 bg-light"
-                                                value="1"
-                                                data-id="pro"
-                                                placeholder="1"
-                                                disabled
-                                        />
-                                        <button class="qty-down border bg-light" data-id="pro">
-                                            <i class="fas fa-angle-down"></i>
-                                        </button>
+                        <!-- #policy -->
+                        <hr/>
+                        <!-- order-details  -->
+                        <div
+                                id="order-details"
+                                class="font-rale d-flex flex-column text-dark"
+                        >
+                            <small>Delivery by: Mar29 - Apr 1</small>
+                            <small
+                            >Sold by <a href="#">Daily Electronics</a> (<?= $product["rate"] ?> out of 5)</small
+                            >
+                            <small
+                            ><i class="fas fa-map-marker-alt color-primary"></i
+                                >&nbsp;&nbsp;Deliver to customer-424201</small
+                            >
+                        </div>
+                        <!-- order-details  -->
+                        <div class="row">
+                            <div class="col-6">
+                                <!-- color -->
+                                <div class="color my-3">
+                                    <div class="d-flex justify-content-between">
+                                        <h6
+                                                class="font-baloo"
+                                                style="display: flex; align-items: center"
+                                        >
+                                            Color:
+                                        </h6>
+                                        <div class="btn-group" role="group"
+                                             aria-label="Basic radio toggle button group">
+                                            <input type="radio" class="btn-check" name="color" id="colorbtnradio1"
+                                                   autocomplete="off"
+                                                   value="yellow"
+                                                   style="margin-right: 10px; margin-left: 10px">
+                                            <div class="p-3 color-yellow-bg rounded-circle">
+                                            </div>
+
+                                            <input type="radio" class="btn-check" name="color" id="colorbtnradio2"
+                                                   autocomplete="off" checked
+                                                   value="black"
+                                                   style="margin-right: 10px; margin-left: 10px">
+                                            <div class="p-3 rounded-circle" style="background-color: black">
+                                            </div>
+
+                                            <input type="radio" class="btn-check" name="color" id="colorbtnradio3"
+                                                   autocomplete="off"
+                                                   value="blue"
+                                                   style="margin-right: 10px; margin-left: 10px">
+                                            <div class="p-3 color-secound-bg rounded-circle">
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </div>
+                                <!-- color -->
                             </div>
-                            <!-- product qty section -->
+                            <div class="col-6">
+                                <!-- product qty section -->
+                                <div class="color my-4">
+                                    <!-- نسال اسامه فيها -->
+                                    <div class="qty d-flex">
+                                        <h6 class="font-baloo">Quantity</h6>
+                                        <div class="px-4 d-flex font-rale">
+                                            <a class="qty-up border bg-light" data-id="<?=$product["id"]?>"
+                                               style="color: black; padding: 2px;">
+                                                <i class="fas fa-angle-up"></i>
+                                            </a>
+                                            <input
+                                                    type="text"
+                                                    class="qty-input border px-2 w-50 bg-light"
+                                                    value="1"
+                                                    name="quantity"
+                                                    data-id="<?=$product["id"]?>"
+                                                    placeholder="1"
+                                            />
+                                            <a class="qty-down border bg-light" data-id="<?=$product["id"]?>"
+                                               style="color: black; padding: 2px;">
+                                                <i class="fas fa-angle-down"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- product qty section -->
+                            </div>
                         </div>
-                    </div>
-                    <!-- size -->
-                    <div class="size my-3">
-                        <h6 class="font-baloo">Size:</h6>
-                        <div class="d-flex justify-content-between w-75">
-                            <div class="font-rubik border p-2">
-                                <button class="btn p-0 font-size-14">4GB RAM</button>
+                        <!-- size -->
+                        <div class="size my-3">
+                            <h6 class="font-baloo">Size:</h6>
+                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                <input type="radio" class="btn-check" name="size" id="btnradio1" autocomplete="off"
+                                       style="margin-right: 10px; margin-left: 10px" value="4">
+                                <label class="btn btn-outline-primary" for="btnradio1">4GB RAM</label>
+
+                                <input type="radio" class="btn-check" name="size" id="btnradio2" autocomplete="off"
+                                       checked
+                                       value="6"
+                                       style="margin-right: 10px; margin-left: 10px">
+                                <label class="btn btn-outline-primary" for="btnradio2">6GB RAM</label>
+
+                                <input type="radio" class="btn-check" name="size" id="btnradio3" autocomplete="off"
+                                       style="margin-right: 10px; margin-left: 10px"
+                                       value="8"
+                                >
+                                <label class="btn btn-outline-primary" for="btnradio3">8GB RAM</label>
                             </div>
-                            <div class="font-rubik border p-2">
-                                <button class="btn p-0 font-size-14">6GB RAM</button>
-                            </div>
-                            <div class="font-rubik border p-2">
-                                <button class="btn p-0 font-size-14">8GB RAM</button>
-                            </div>
+                            <!--                            <div class="btn-group">-->
+                            <!--                                <div class="font-rubik border p-2">-->
+                            <!--                                    <button class="btn p-0 font-size-14">4GB RAM</button>-->
+                            <!--                                </div>-->
+                            <!--                                <div class="font-rubik border p-2">-->
+                            <!--                                    <button class="btn p-0 font-size-14">6GB RAM</button>-->
+                            <!--                                </div>-->
+                            <!--                                <div class="font-rubik border p-2">-->
+                            <!--                                    <button class="btn p-0 font-size-14">8GB RAM</button>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
                         </div>
+                        <!-- size -->
                     </div>
-                    <!-- size -->
                 </div>
-<!--                <div class="col">-->
-<!--                    <h6 class="font-rubik">Product Descriptions</h6>-->
-<!--                    <hr/>-->
-<!--                    <p class="font-rale .font-size-14">-->
-<!--                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi,-->
-<!--                        debitis cum. Asperiores atque commodi, vero, blanditiis quos aut-->
-<!--                        necessitatibus odit laudantium libero labore repellat voluptates-->
-<!--                        doloremque dolor sit, recusandae voluptatum.-->
-<!--                    </p>-->
-<!--                    <p class="font-rale .font-size-14">-->
-<!--                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi,-->
-<!--                        debitis cum. Asperiores atque commodi, vero, blanditiis quos aut-->
-<!--                        necessitatibus odit laudantium libero labore repellat voluptates-->
-<!--                        doloremque dolor sit, recusandae voluptatum.-->
-<!--                    </p>-->
-<!--                </div>-->
             </div>
-        </div>
-    </section>
-    <!-- product -->
-    <!-- top sale المنتجات الاولي -->
-    <!-- ----------------------------------------------------------------------------------------------------------------- -->
-    <section id="top-sale">
-        <div class="container py-5">
-            <!--  استخدمت كونتينر علشان اخليههم يجوا في النص ودده عن طريق البوتستراب -->
-            <h4 class="font-rubik font-size-20">Top Sale</h4>
-            <hr/>
-            <!-- <the secound  images -- الي هما top-sale > -->
-            <!-- owl carousel -->
-            <div class="owl-carousel owl-theme">
-                <!-- the five top salary -->
-                <?php
-                foreach ($topSaleProducts as $topSaleProduct) {
-                    $discount = $topSaleProduct["discount"] * 100;
-//                    echo ;
-                    echo '
+        </section>
+        <!-- product -->
+        <!-- top sale المنتجات الاولي -->
+        <!-- ----------------------------------------------------------------------------------------------------------------- -->
+        <section id="top-sale">
+            <div class="container py-5">
+                <!--  استخدمت كونتينر علشان اخليههم يجوا في النص ودده عن طريق البوتستراب -->
+                <h4 class="font-rubik font-size-20">Top Sale</h4>
+                <hr>
+                <!-- <the secound  images -- الي هما top-sale > -->
+                <!-- owl carousel -->
+                <div class="owl-carousel owl-theme">
+                    <!-- the five top salary -->
+                    <?php
+                    foreach ($topSaleProducts as $topSaleProduct) {
+                        $discount = $topSaleProduct["discount"] * 100;
+                        echo '
+                    <form action="" method="post">
                      <div class="item py-2">
+                    <input type="hidden" name="product_id" value="' . $topSaleProduct["id"] . '">
               <div class="product font-rale">
                 <!-- المنتج الاول (class="img-fluid" ده علشان يخليها ربسبونسيف)-->
-                <a href="#" name="image">
+                <a href="product.php?id=' . $topSaleProduct["id"] . '" name="image">
                 <img
                     src="' . $topSaleProduct["picture"] . '"
                     alt="product1"
@@ -337,33 +365,34 @@ if ($error) {
                 <div class="text-center">
                   <h6 name ="product_name">' . $topSaleProduct["name"] . " " . $topSaleProduct["model"] . '</h6>
                   <div class="rating text-warning font-size-12">';
-                    for ($i = 0; $i < floor($topSaleProduct["rate"]); $i++) {
-                        echo '<span><i class="fas fa-star"></i></span>';
-                    }
-                    for ($i = 0; $i < 5 - floor($topSaleProduct["rate"]); $i++) {
-                        echo '<span><i class="far fa-star"></i></span>';
-                    }
-                    echo '</div>
+                        for ($i = 0; $i < floor($topSaleProduct["rate"]); $i++) {
+                            echo '<span><i class="fas fa-star"></i></span>';
+                        }
+                        for ($i = 0; $i < 5 - floor($topSaleProduct["rate"]); $i++) {
+                            echo '<span><i class="far fa-star"></i></span>';
+                        }
+                        echo '</div>
                   <div class="price py-2">
                     <span name="price" style="font-weight: bold">$' . $topSaleProduct["price"] . '</span>
                     <span name="discount" style="color: darkred; font-weight: bolder; margin-left: 50px">' . $discount . '%</span>
                   </div>
-                  <button type="submit" name="add_cart" class="btn btn-warning font-size-12">
+                  <button type="submit" name="add_cart_without_details" class="btn btn-warning font-size-12">
                     Add to Cart
                   </button>
                 </div>
               </div>
             </div>  
+            </form>
                     ';
-                }
-                ?>
-            </div>
-            <!-- <end the secound  images -- الي هما top-sale > -->
-        </div>
-    </section>
-    <!-- end top sale المنتجات الاولي -->
-</main>
-<!-- end #main-site -->
+                    }
+                    ?>
+                    <!-- <end the secound  images -- الي هما top-sale > -->
+                </div>
+        </section>
+        <!-- end top sale المنتجات الاولي -->
+    </main>
+    <!-- end #main-site -->
+</form>
 
 <!-- start #footer -->
 <footer id="footer" class="bg-dark text-white py-5">

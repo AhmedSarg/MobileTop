@@ -1,5 +1,4 @@
 <?php
-include '../Back End Code/config.php';
 
 if (isset($_POST['add'])) {
 
@@ -25,6 +24,7 @@ if (isset($_POST['add'])) {
     } else {
         echo "<h3> Failed to upload image!</h3>";
     }
+    header('Location: ' . $_SERVER['REQUEST_URI']);
 }
 
 if (isset($_POST['update'])) {
@@ -87,6 +87,7 @@ if (isset($_POST['update'])) {
                 echo "<h3> Image uploaded Failed!</h3>";
             }
         }
+        header('Location: ' . $_SERVER['REQUEST_URI']);
 
     }
     if ($flag) {
@@ -107,6 +108,7 @@ if (isset($_POST['delete'])) {
     }
     $delete = "DELETE FROM product WHERE id = $id";
     mysqli_query($conn, $delete);
+    header('Location: ' . $_SERVER['REQUEST_URI']);
 }
 
 $allProducts = $products->getAllProducts($conn);
