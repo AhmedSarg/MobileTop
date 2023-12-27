@@ -1,6 +1,7 @@
 <?php
 include('includes/header.php');
 include('includes/navbar.php');
+include '../Back End Code/config.php';
 include '../Back End Code/admin.php';
 
 ?>

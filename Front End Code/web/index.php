@@ -1,5 +1,6 @@
 <?php
-include '..\..\Back End Code\login.php';
+include '../../Back End Code/config.php';
+include '../../Back End Code/login.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

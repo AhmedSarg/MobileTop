@@ -1,5 +1,4 @@
 <?php
-include 'config.php';
 global $product;
 global $error;
 $error= false;
