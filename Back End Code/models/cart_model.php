@@ -6,7 +6,7 @@ class Cart
 
     public function __construct()
     {
-        $this->user_id = $_SESSION["user_id"];
+        @$this->user_id = $_SESSION["user_id"];
     }
 
     public function getCartProducts($conn)
@@ -14,7 +14,8 @@ class Cart
         $result = '';
         try{
             $result = $conn->query("SELECT size, color, user_id, product_id, sum(quantity) as quantity FROM `cart` where user_id = $this->user_id group by product_id") or die("all products query failed");
-        }catch (mysqli_sql_exception $e){echo $e;}    
+        }catch (mysqli_sql_exception $e){echo $e;echo 'tsssssssssssssssssssssssssssssssssssssssssssssssst';  }
+
         $ids = '';
         $quantity = array();
         $flag = false;

@@ -58,6 +58,7 @@ include '../../Back End Code/cart.php';
                     <a href="cart.php" class="py-2 rounded-pill color-primary-bg">
                         <span class="font-size-16 px-2 text-white"><i class="fas fa-shopping-cart"></i></span>
                         <span class="px-3 py-2 rounded-pill text-dark bg-light"><?= $countCart ?? 0; ?></span>
+                        <!-- <span class="px-3 py-2 rounded-pill text-dark bg-light">0</span> -->
                     </a>
                 </form>
             </div>
