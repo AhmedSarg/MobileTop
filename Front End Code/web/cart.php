@@ -146,6 +146,7 @@ include '../../Back End Code/cart.php';
                         value="' . $cartProduct["quantity"] . '"
                         data-id="' . $cartProduct["id"] . '"
                         placeholder="1"
+                        readonly="readonly"
                       />
                     </div>
                     <button
