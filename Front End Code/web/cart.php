@@ -70,7 +70,7 @@ include '../../Back End Code/cart.php';
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav m-auto font-rubik">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="home.php">Home</a>
                 </li>
                 <!-- <li class="nav-item">
                   <a class="nav-link" href="#">Category</a>
@@ -82,10 +82,7 @@ include '../../Back End Code/cart.php';
                     <a class="nav-link" href="#">Cart</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About us</a>
+                    <a class="nav-link" href="#footer">Contact</a>
                 </li>
             </ul>
             <!-- small cart  border-radius == bootstrap == border raduis   -->

@@ -11,7 +11,10 @@ class Cart
 
     public function getCartProducts($conn)
     {
-        $result = $conn->query("SELECT size, color, user_id, product_id, sum(quantity) as quantity FROM `cart` where user_id = $this->user_id group by product_id") or die("all products query failed");
+        $result = '';
+        try{
+            $result = $conn->query("SELECT size, color, user_id, product_id, sum(quantity) as quantity FROM `cart` where user_id = $this->user_id group by product_id") or die("all products query failed");
+        }catch (mysqli_sql_exception $e){echo $e;}    
         $ids = '';
         $quantity = array();
         $flag = false;

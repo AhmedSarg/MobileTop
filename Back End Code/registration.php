@@ -15,8 +15,8 @@ if(isset($_POST['submit'])){
     }else{
        mysqli_query($conn, "INSERT INTO `user`(name, email, password) VALUES('$name', '$email', '$pass')") or die('query failed');
        echo "<script type ='text/javascript'> alert('successfully register')</script>";
-       header('Location: home.php');
-
+    //    header('Location: home.php');
+    header("Location: home.php");
     }
  
  }

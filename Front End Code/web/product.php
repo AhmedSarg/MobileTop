@@ -9,107 +9,73 @@ if ($error) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mobile Top</title>
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
-            crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
     <!-- owl cursour -->
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-            integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-    />
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
-            integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- font awsoum -->
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- custom css file -->
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-<!-- start #header                  the bg-color are bootstrap class     -->
-<header id="header">
-    <div class="strip d-flex justify-content-between px-4 py-1 bg-light">
-        <div class="font-rale font-size-14">
-            <a href="#" class="px-3 border-right border-left text-dark"
-            >Welcome</a
-            >
+    <!-- start #header                  the bg-color are bootstrap class     -->
+    <header id="header">
+        <div class="strip d-flex justify-content-between px-4 py-1 bg-light">
+            <div class="font-rale font-size-14">
+                <a href="#" class="px-3 border-right border-left text-dark">Welcome</a>
+            </div>
         </div>
-    </div>
-    <!-- primary-navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark color-secound-bg">
-        <a class="navbar-brand" href="#">Mobile Top</a>
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav m-auto font-rubik">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <!-- <li class="nav-item">
+        <!-- primary-navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark color-secound-bg">
+            <a class="navbar-brand" href="#">Mobile Top</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav m-auto font-rubik">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="home.php">Home</a>
+                    </li>
+                    <!-- <li class="nav-item">
                   <a class="nav-link" href="#">Category</a>
                 </li> -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cart</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About us</a>
-                </li>
-            </ul>
-            <!-- small cart  border-radius == bootstrap == border raduis   -->
-            <form action="#" class="font-size-14 font-rale">
-                <a href="cart.php" class="py-2 rounded-pill color-primary-bg">
-              <span class="font-size-16 px-2 text-white"
-              ><i class="fas fa-shopping-cart"></i
-                  ></span>
-                    <span class="px-3 py-2 rounded-pill text-dark bg-light"><?=$countCart??0;?></span>
-                </a>
-            </form>
-        </div>
-    </nav>
-    <!-- end -primary-navbar -->
-</header>
-<!-- end #header -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.php">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#footer">Contact</a>
+                    </li>
+                </ul>
+                <!-- small cart  border-radius == bootstrap == border raduis   -->
+                <form action="#" class="font-size-14 font-rale">
+                    <a href="cart.php" class="py-2 rounded-pill color-primary-bg">
+                        <span class="font-size-16 px-2 text-white"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="px-3 py-2 rounded-pill text-dark bg-light"><?= $countCart ?? 0; ?></span>
+                    </a>
+                </form>
+            </div>
+        </nav>
+        <!-- end -primary-navbar -->
+    </header>
+    <!-- end #header -->
 
-<form method="post" action="">
     <!-- start #main-site -->
     <main id="main-site">
         <!-- product -->
+        <form method="post" action="">
+    <input type="hidden" name="product_id" value="<?= $product["id"] ?>">
+   
         <section id="product" class="py-3">
             <div class="container">
                 <div class="row">
@@ -126,9 +92,11 @@ if ($error) {
                                 </button>
                             </div>
                             <div class="col">
-                                <button type="submit" name="add_cart_with_details" class="btn btn-warning form-control">
-                                    Add to Cart
-                                </button>
+                                <a href="cart.php">
+                                    <button type="submit" name="add_cart_with_details" class="btn btn-warning form-control">
+                                        Add to Cart
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -275,7 +243,7 @@ if ($error) {
                                     <div class="qty d-flex">
                                         <h6 class="font-baloo">Quantity</h6>
                                         <div class="px-4 d-flex font-rale">
-                                            <a class="qty-up border bg-light" data-id="<?=$product["id"]?>"
+                                            <a class="qty-up border bg-light" data-id="<?= $product["id"] ?>"
                                                style="color: black; padding: 2px;">
                                                 <i class="fas fa-angle-up"></i>
                                             </a>
@@ -284,10 +252,10 @@ if ($error) {
                                                     class="qty-input border px-2 w-50 bg-light"
                                                     value="1"
                                                     name="quantity"
-                                                    data-id="<?=$product["id"]?>"
+                                                    data-id="<?= $product["id"] ?>"
                                                     placeholder="1"
                                             />
-                                            <a class="qty-down border bg-light" data-id="<?=$product["id"]?>"
+                                            <a class="qty-down border bg-light" data-id="<?= $product["id"] ?>"
                                                style="color: black; padding: 2px;">
                                                 <i class="fas fa-angle-down"></i>
                                             </a>
@@ -334,6 +302,7 @@ if ($error) {
                 </div>
             </div>
         </section>
+     </form>
         <!-- product -->
         <!-- top sale المنتجات الاولي -->
         <!-- ----------------------------------------------------------------------------------------------------------------- -->
@@ -392,7 +361,7 @@ if ($error) {
         <!-- end top sale المنتجات الاولي -->
     </main>
     <!-- end #main-site -->
-</form>
+
 
 <!-- start #footer -->
 <footer id="footer" class="bg-dark text-white py-5">

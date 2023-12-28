@@ -15,6 +15,6 @@ if (isset($_POST['submit'])) {
     } else {
         echo "<script type ='text/javascript'> alert('incorrect  email or password')</script>";
     }
-    header('Location: ' . $_SERVER['REQUEST_URI']);
+    // header('Location: ' . $_SERVER['REQUEST_URI']);
 
 }

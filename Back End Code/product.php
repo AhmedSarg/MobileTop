@@ -12,4 +12,5 @@ if (isset($_GET["id"])) {
 else {
     $error = true;
 }
+// echo $product["id"];
 $topSaleProducts = $products->getTopSale($conn, 5);
