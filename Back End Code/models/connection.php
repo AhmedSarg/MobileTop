@@ -9,7 +9,7 @@ class Connection {
     public $conn = null;
 
     public function __construct() {
-    //    $this->conn = mysqli_connect($this->host, $this->username, "",$this->database, 3306);
+      // $this->conn = mysqli_connect($this->host, $this->username, "",$this->database, 3306);
       $this->conn = mysqli_connect($this->host, $this->username, $this->password, $this->database, 3306);
         if ($this->conn->connect_error) {
             echo $this->conn->connect_error;
