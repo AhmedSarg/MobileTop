@@ -4,7 +4,8 @@ if (isset($_POST['add_cart_without_details'])) {
     $user_id = $_SESSION["user_id"];
     $product_id = $_POST['product_id'];
     mysqli_query($conn, "INSERT INTO `cart`(user_id, product_id, quantity) VALUES('$user_id', '$product_id', 1)") or die('query failed');
-    header('Location: ' . $_SERVER['REQUEST_URI']);
+    // header('Location: ' . $_SERVER['REQUEST_URI']);
+    header('Location: cart.php');
 };
 
 if (isset($_POST['add_cart_with_details'])) {
@@ -13,11 +14,13 @@ if (isset($_POST['add_cart_with_details'])) {
     $quantity = $_POST["quantity"];
     $color = $_POST["color"];
     $size = $_POST["size"];
-    echo $quantity;
-    echo $color;
-    echo $size;
+    echo $_POST['product_id'];
+    // echo $quantity;
+    // echo $color;
+    // echo $size;
     mysqli_query($conn, "INSERT INTO `cart`(user_id, product_id, quantity, color, size) VALUES('$user_id', '$product_id', $quantity, '$color', '$size')") or die('query failed');
-    header('Location: ' . $_SERVER['REQUEST_URI']);
+    // header('Location: ' . $_SERVER['REQUEST_URI']);
+    // header('Location: cart.php');
 };
 
 $cartProducts = $carts->getCartProducts($conn);
