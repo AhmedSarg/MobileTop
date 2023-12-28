@@ -14,13 +14,13 @@ if (isset($_POST['add_cart_with_details'])) {
     $quantity = $_POST["quantity"];
     $color = $_POST["color"];
     $size = $_POST["size"];
-    echo $_POST['product_id'];
+    // echo $_POST['product_id'];
     // echo $quantity;
     // echo $color;
     // echo $size;
     mysqli_query($conn, "INSERT INTO `cart`(user_id, product_id, quantity, color, size) VALUES('$user_id', '$product_id', $quantity, '$color', '$size')") or die('query failed');
     // header('Location: ' . $_SERVER['REQUEST_URI']);
-    // header('Location: cart.php');
+    header('Location: cart.php');
 };
 
 $cartProducts = $carts->getCartProducts($conn);
