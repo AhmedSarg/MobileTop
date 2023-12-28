@@ -30,7 +30,7 @@ include '../../Back End Code/registration.php'
 <body>
    
     <!-- start #header                                             the bg-color are bootstrap class     -->
-    <header id="header">
+    <header id="header" class ="mb-5">
         <!-- <div class="strip d-flex justify-content-between px-4 py-1 bg-light">
             <div class="font-rale font-size-14">
                 <a href="#" class="px-3 border-right border-left text-dark">Welcome</a>
@@ -86,7 +86,7 @@ include '../../Back End Code/registration.php'
                     <div class="row d-flex justify-content-center">
                         <div class="col-12 col-md-7">
                             <div class="card" style="border-radius: 15px;">
-                                <div class="card-body p-5">
+                                <div class="card-body py-5">
                                     <h2 class="text-uppercase text-center font-rubik mb-5">Create an account</h2>
 
                                     <form action="" method="post">
@@ -145,7 +145,7 @@ include '../../Back End Code/registration.php'
     <!-- end #main-site -->
 
     <!-- start #footer -->
-    <footer id="footer" class="bg-dark text-white py-5">
+    <footer id="footer" class="bg-dark text-white py-5 mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-12">

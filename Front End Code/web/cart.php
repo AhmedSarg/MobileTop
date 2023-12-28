@@ -138,10 +138,7 @@ include '../../Back End Code/cart.php';
                   </div>
                   <div class="qty d-flex pt-2">
                     <div class="d-flex font-rale w-25">
-                      <button class="qty-up border bg-light" data-id="' . $cartProduct["id"] . '"
-                        style="color: black; padding: 2px;">
-                        <i class="fas fa-angle-up"></i>
-                      </button>
+                      
                       <input
                         type="text"
                         name="quantity-in-cart' . '"
@@ -150,10 +147,6 @@ include '../../Back End Code/cart.php';
                         data-id="' . $cartProduct["id"] . '"
                         placeholder="1"
                       />
-                      <button class="qty-down border bg-light" data-id="' . $cartProduct["id"] . '"
-                        style="color: black; padding: 2px;">
-                        <i class="fas fa-angle-down"></i>
-                      </button>
                     </div>
                     <button
                       type="submit" name="delete_cart"
